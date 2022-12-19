@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let process = require('process');
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
 const MicrofrontendsClientFixtureV1_1 = require("./MicrofrontendsClientFixtureV1");
-const MicrofrontendsLambdaClientV1_1 = require("../../src/version1/MicrofrontendsLambdaClientV1");
-suite('MicrofrontendsLambdaClient', () => {
+const MicrofrontendsCommandableLambdaClientV1_1 = require("../../src/version1/MicrofrontendsCommandableLambdaClientV1");
+suite('MicrofrontendsCommandableLambdaClient', () => {
     let AWS_LAMDBA_ARN = process.env["AWS_LAMDBA_ARN"] || "";
     let AWS_ACCESS_ID = process.env["AWS_ACCESS_ID"] || "";
     let AWS_ACCESS_KEY = process.env["AWS_ACCESS_KEY"] || "";
@@ -27,7 +27,7 @@ suite('MicrofrontendsLambdaClient', () => {
     let client;
     let fixture;
     setup(() => __awaiter(void 0, void 0, void 0, function* () {
-        client = new MicrofrontendsLambdaClientV1_1.MicrofrontendsLambdaClientV1();
+        client = new MicrofrontendsCommandableLambdaClientV1_1.MicrofrontendsCommandableLambdaClientV1();
         client.configure(lambdaConfig);
         fixture = new MicrofrontendsClientFixtureV1_1.MicrofrontendsClientFixtureV1(client);
         yield client.open(null);
@@ -39,4 +39,4 @@ suite('MicrofrontendsLambdaClient', () => {
         yield fixture.testCrudOperations();
     }));
 });
-//# sourceMappingURL=MicrofrontendsLambdaClientV1.test.js.map
+//# sourceMappingURL=MicrofrontendsCommandableLambdaClientV1.test.js.map

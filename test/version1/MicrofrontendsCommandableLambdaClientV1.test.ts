@@ -3,9 +3,9 @@ let process = require('process');
 import { ConfigParams } from 'pip-services3-commons-nodex';
 
 import { MicrofrontendsClientFixtureV1 } from './MicrofrontendsClientFixtureV1';
-import { MicrofrontendsLambdaClientV1 } from '../../src/version1/MicrofrontendsLambdaClientV1';
+import { MicrofrontendsCommandableLambdaClientV1 } from '../../src/version1/MicrofrontendsCommandableLambdaClientV1';
 
-suite('MicrofrontendsLambdaClient', ()=> {
+suite('MicrofrontendsCommandableLambdaClient', ()=> {
     let AWS_LAMDBA_ARN = process.env["AWS_LAMDBA_ARN"] || "";
     let AWS_ACCESS_ID = process.env["AWS_ACCESS_ID"] || "";
     let AWS_ACCESS_KEY = process.env["AWS_ACCESS_KEY"] || "";
@@ -26,11 +26,11 @@ suite('MicrofrontendsLambdaClient', ()=> {
     if (lambdaConfig.getAsNullableString("connection.protocol") != "aws")
         return;
 
-    let client: MicrofrontendsLambdaClientV1;
+    let client: MicrofrontendsCommandableLambdaClientV1;
     let fixture: MicrofrontendsClientFixtureV1;
 
     setup(async () => {
-        client = new MicrofrontendsLambdaClientV1();
+        client = new MicrofrontendsCommandableLambdaClientV1();
         client.configure(lambdaConfig);
 
         fixture = new MicrofrontendsClientFixtureV1(client);

@@ -5,8 +5,8 @@ import { ConsoleLogger } from 'pip-services3-components-nodex';
 
 import { MicrofrontendsMemoryPersistence } from 'service-microfrontends-node';
 import { MicrofrontendsController } from 'service-microfrontends-node';
-import { MicrofrontendsHttpServiceV1 } from 'service-microfrontends-node';
-import { MicrofrontendsHttpClientV1 } from '../../src/version1/MicrofrontendsHttpClientV1';
+import { MicrofrontendsCommandableHttpServiceV1 } from 'service-microfrontends-node';
+import { MicrofrontendsCommandableHttpClientV1 } from '../../src/version1/MicrofrontendsCommandableHttpClientV1';
 import { MicrofrontendsClientFixtureV1 } from './MicrofrontendsClientFixtureV1';
 
 var httpConfig = ConfigParams.fromTuples(
@@ -15,9 +15,9 @@ var httpConfig = ConfigParams.fromTuples(
     "connection.port", 3000
 );
 
-suite('MicrofrontendsRestClientV1', () => {
-    let service: MicrofrontendsHttpServiceV1;
-    let client: MicrofrontendsHttpClientV1;
+suite('MicrofrontendsCommandableClientV1', () => {
+    let service: MicrofrontendsCommandableHttpServiceV1;
+    let client: MicrofrontendsCommandableHttpClientV1;
     let fixture: MicrofrontendsClientFixtureV1;
 
     suiteSetup(async () => {
@@ -25,19 +25,19 @@ suite('MicrofrontendsRestClientV1', () => {
         let persistence = new MicrofrontendsMemoryPersistence();
         let controller = new MicrofrontendsController();
 
-        service = new MicrofrontendsHttpServiceV1();
+        service = new MicrofrontendsCommandableHttpServiceV1();
         service.configure(httpConfig);
 
         let references: References = References.fromTuples(
             new Descriptor('pip-services', 'logger', 'console', 'default', '1.0'), logger,
             new Descriptor('service-microfrontends', 'persistence', 'memory', 'default', '1.0'), persistence,
             new Descriptor('service-microfrontends', 'controller', 'default', 'default', '1.0'), controller,
-            new Descriptor('service-microfrontends', 'service', 'http', 'default', '1.0'), service
+            new Descriptor('service-microfrontends', 'service', 'commandable-http', 'default', '1.0'), service
         );
         controller.setReferences(references);
         service.setReferences(references);
 
-        client = new MicrofrontendsHttpClientV1();
+        client = new MicrofrontendsCommandableHttpClientV1();
         client.setReferences(references);
         client.configure(httpConfig);
 

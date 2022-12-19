@@ -9,11 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MicrofrontendsLambdaClientV1 = void 0;
+exports.MicrofrontendsCommandableLambdaClientV1 = void 0;
 let _ = require('lodash');
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
 const pip_services3_aws_nodex_1 = require("pip-services3-aws-nodex");
-class MicrofrontendsLambdaClientV1 extends pip_services3_aws_nodex_1.CommandableLambdaClient {
+class MicrofrontendsCommandableLambdaClientV1 extends pip_services3_aws_nodex_1.CommandableLambdaClient {
     constructor(config) {
         super('microfrontends');
         if (config != null)
@@ -56,5 +56,5 @@ class MicrofrontendsLambdaClientV1 extends pip_services3_aws_nodex_1.Commandable
         });
     }
 }
-exports.MicrofrontendsLambdaClientV1 = MicrofrontendsLambdaClientV1;
-//# sourceMappingURL=MicrofrontendsLambdaClientV1.js.map
+exports.MicrofrontendsCommandableLambdaClientV1 = MicrofrontendsCommandableLambdaClientV1;
+//# sourceMappingURL=MicrofrontendsCommandableLambdaClientV1.js.map

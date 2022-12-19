@@ -10,7 +10,7 @@ import { CommandableLambdaClient } from 'pip-services3-aws-nodex';
 import { MicrofrontendV1 } from './MicrofrontendV1';
 import { IMicrofrontendsClientV1 } from './IMicrofrontendsClientV1';
 
-export class MicrofrontendsLambdaClientV1 extends CommandableLambdaClient implements IMicrofrontendsClientV1 {       
+export class MicrofrontendsCommandableLambdaClientV1 extends CommandableLambdaClient implements IMicrofrontendsClientV1 {       
 
     constructor(config?: any) {
         super('microfrontends');

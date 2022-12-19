@@ -8,7 +8,7 @@ import { CommandableHttpClient } from 'pip-services3-rpc-nodex';
 import { MicrofrontendV1 } from './MicrofrontendV1';
 import { IMicrofrontendsClientV1 } from './IMicrofrontendsClientV1';
 
-export class MicrofrontendsHttpClientV1 extends CommandableHttpClient implements IMicrofrontendsClientV1 {       
+export class MicrofrontendsCommandableHttpClientV1 extends CommandableHttpClient implements IMicrofrontendsClientV1 {       
     
     constructor(config?: any) {
         super('v1/microfrontends');

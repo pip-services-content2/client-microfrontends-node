@@ -16,10 +16,10 @@ const pip_services3_components_nodex_1 = require("pip-services3-components-nodex
 const service_microfrontends_node_1 = require("service-microfrontends-node");
 const service_microfrontends_node_2 = require("service-microfrontends-node");
 const service_microfrontends_node_3 = require("service-microfrontends-node");
-const MicrofrontendsHttpClientV1_1 = require("../../src/version1/MicrofrontendsHttpClientV1");
+const MicrofrontendsCommandableHttpClientV1_1 = require("../../src/version1/MicrofrontendsCommandableHttpClientV1");
 const MicrofrontendsClientFixtureV1_1 = require("./MicrofrontendsClientFixtureV1");
 var httpConfig = pip_services3_commons_nodex_2.ConfigParams.fromTuples("connection.protocol", "http", "connection.host", "localhost", "connection.port", 3000);
-suite('MicrofrontendsRestClientV1', () => {
+suite('MicrofrontendsCommandableClientV1', () => {
     let service;
     let client;
     let fixture;
@@ -27,12 +27,12 @@ suite('MicrofrontendsRestClientV1', () => {
         let logger = new pip_services3_components_nodex_1.ConsoleLogger();
         let persistence = new service_microfrontends_node_1.MicrofrontendsMemoryPersistence();
         let controller = new service_microfrontends_node_2.MicrofrontendsController();
-        service = new service_microfrontends_node_3.MicrofrontendsHttpServiceV1();
+        service = new service_microfrontends_node_3.MicrofrontendsCommandableHttpServiceV1();
         service.configure(httpConfig);
-        let references = pip_services3_commons_nodex_3.References.fromTuples(new pip_services3_commons_nodex_1.Descriptor('pip-services', 'logger', 'console', 'default', '1.0'), logger, new pip_services3_commons_nodex_1.Descriptor('service-microfrontends', 'persistence', 'memory', 'default', '1.0'), persistence, new pip_services3_commons_nodex_1.Descriptor('service-microfrontends', 'controller', 'default', 'default', '1.0'), controller, new pip_services3_commons_nodex_1.Descriptor('service-microfrontends', 'service', 'http', 'default', '1.0'), service);
+        let references = pip_services3_commons_nodex_3.References.fromTuples(new pip_services3_commons_nodex_1.Descriptor('pip-services', 'logger', 'console', 'default', '1.0'), logger, new pip_services3_commons_nodex_1.Descriptor('service-microfrontends', 'persistence', 'memory', 'default', '1.0'), persistence, new pip_services3_commons_nodex_1.Descriptor('service-microfrontends', 'controller', 'default', 'default', '1.0'), controller, new pip_services3_commons_nodex_1.Descriptor('service-microfrontends', 'service', 'commandable-http', 'default', '1.0'), service);
         controller.setReferences(references);
         service.setReferences(references);
-        client = new MicrofrontendsHttpClientV1_1.MicrofrontendsHttpClientV1();
+        client = new MicrofrontendsCommandableHttpClientV1_1.MicrofrontendsCommandableHttpClientV1();
         client.setReferences(references);
         client.configure(httpConfig);
         fixture = new MicrofrontendsClientFixtureV1_1.MicrofrontendsClientFixtureV1(client);
@@ -47,4 +47,4 @@ suite('MicrofrontendsRestClientV1', () => {
         yield fixture.testCrudOperations();
     }));
 });
-//# sourceMappingURL=MicrofrontendsHttpClientV1.test.js.map
+//# sourceMappingURL=MicrofrontendsCommandableHttpClientV1.test.js.map
