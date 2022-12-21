@@ -53,6 +53,6 @@
         "restify": "^4.3.0",
         "chai": "*",
         "mocha": "*",
-        "service-microfrontends-node": "git+https://github.com/pip-services-content2/service-microfrontends-node"
+        "service-microfrontends-node": "^1.1.*"
     }
 }
